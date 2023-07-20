@@ -50,4 +50,21 @@ $(document).ready(function(){
 	clientsArrows.forEach(arrow => {
 		arrow.style.display = 'flex';
 	});
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 1200) {
+			$('.go-top').fadeIn();
+			$('.go-top').css('display', 'flex');
+		} else {
+			$('.go-top').fadeOut();
+		}
+	});
+
+	$("a").click(function() {
+		const _href = $(this).attr("href");
+		$("html, body").animate({
+			scrollTop: $(_href).offset().top + "px"
+		});
+		return false;
+	});
 });
